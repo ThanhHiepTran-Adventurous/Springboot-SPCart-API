@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,9 +23,12 @@ public class Order {
     private String orderDescription;
 
 
-    
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    private Customer customer;
 
-
-
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = ShoppingCart.class)
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private List<ShoppingCart> cartItems;
 
 }
