@@ -21,6 +21,8 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String productName;
+
     private Long productId;
 
     private int quantity;
