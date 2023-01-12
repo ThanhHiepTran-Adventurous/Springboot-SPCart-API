@@ -1,6 +1,7 @@
 package com.springboot.shoppingcart.api.controller;
 
 
+import com.springboot.shoppingcart.api.dto.ProductResponse;
 import com.springboot.shoppingcart.api.entity.Product;
 import com.springboot.shoppingcart.api.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class ShoppingCartController {
 
 
     @GetMapping("/getAllProduct")
-    public ResponseEntity<List<Product>> getAllProduct() {
-         List<Product> listProduct = productService.getAllProduct();
+    public ResponseEntity<ProductResponse> getAllProduct() {
+         ProductResponse listProduct = productService.getAllProduct();
          return ResponseEntity.ok(listProduct);
     }
 
